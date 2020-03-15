@@ -1,6 +1,8 @@
 import {Container} from "inversify";
 import {ILogger} from "./services/Logger/interface/ILogger";
 import {Logger} from "./services/Logger/classes/Logger";
+import { ICarOnSaleClient } from "./services/CarOnSaleClient/interface/ICarOnSaleClient";
+import { CarOnSaleClient } from "./services/CarOnSaleClient/classes/CarOnSaleClient";
 import {AuctionMonitorApp} from "./AuctionMonitorApp";
 import {DependencyIdentifier} from "./DependencyIdentifiers";
 
@@ -15,6 +17,7 @@ const container = new Container({
  * Register dependencies in DI environment.
  */
 container.bind<ILogger>(DependencyIdentifier.LOGGER).to(Logger);
+container.bind<ICarOnSaleClient>(DependencyIdentifier.CLIENT).to(CarOnSaleClient);
 
 
 /*
